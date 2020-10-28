@@ -1,0 +1,17 @@
+{
+  "name": "gold-cors-proxy",
+  "version": "0.1.0",
+  "description": "A NodeJS reverse proxy to handle CSV downloads from Pyodide",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon ./server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1"
+  }
+}

@@ -1,8 +1,6 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const util = require('util');
-const streamPipeline = util.promisify(require('stream').pipeline);
 const fetch = require('node-fetch');
 const port = process.env.PORT || 8080;
 
@@ -37,5 +35,5 @@ app.get('/proxy', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Example app listening at ${port}`);
 });

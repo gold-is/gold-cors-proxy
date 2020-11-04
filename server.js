@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const fetch = require('node-fetch');
+const request = require('request');
+// const fetch = require('node-fetch');
 const port = process.env.PORT || 8080;
 
 const corsOptions = {
@@ -16,22 +17,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/proxy', (req, res) => {
-  console.log('/proxy');
-  console.log(req.query.url);
-
-  return new Promise((resolve) => {
-    fetch(req.query.url)
-      .then((response) => response.text())
-      .then((text) => {
-        res.status(200).send(text);
-        resolve();
-      })
-      .catch((err) => {
-        res.status(400).send(err.message);
-
-        resolve();
-      });
-  });
+  request(req.query.url).pipe(res);
 });
 
 app.listen(port, () => {
